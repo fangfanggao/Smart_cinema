@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+    <context:component-scan base-package="smartCinema.*" />
+
+    <!-- 配置数据源 -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/cinema"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="Bueryue0908"></property>
+    </bean>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--ticket price-->
+    <bean id="ticketPriceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="smartCinema.mybatis.mapper.TicketPriceMapper"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+
+    <bean id="ticketPriceService" class="smartCinema.mybatis.imp.TicketPriceServiceImp">
+        <property name="ticketPriceMapper" ref="ticketPriceMapper"></property>
+    </bean>
+
+    <!--movie-->
+    <bean id="movieMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="smartCinema.mybatis.mapper.MovieMapper"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+
+    <bean id="movieService" class="smartCinema.mybatis.imp.MovieServieImp">
+        <property name="movieMapper" ref="movieMapper"></property>
+    </bean>
+
+    <!--attendance-->
+    <bean id="attendMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="smartCinema.mybatis.mapper.AttendanceMapper"></property>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
+
+    <bean id="attendanceService" class="smartCinema.mybatis.imp.AttendanceServiceImp">
+        <property name="attendanceMapper" ref="attendMapper"></property>
+    </bean>
+
+
+</beans>

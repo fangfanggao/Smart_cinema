@@ -1,0 +1,98 @@
+{
+  "roles":["company manager","cinema manager","restaurant manager","ticket seller","goods seller","customer"],
+  "company manager":{
+    "modules":["Headquarters management"],
+    "Headquarters management":{
+      "functions":["Branches analysis","Command center"],
+      "Branches analysis":"Branches analysis",
+      "Command center":"Command center function"
+
+    }
+  },
+
+  "cinema manager":{
+    "modules":["Tickets","Goods","Hardware","Cinema media","Capital","Management free",
+                "Workforce","Air conditioner management","VIP and voucher"],
+    "Tickets":{
+      "functions":["Movie schedule","Ticket price analysis","Tickets query"],
+      "Movie schedule":"Movie schedule",
+      "Ticket price analysis":"Ticket price analysis",
+      "Tickets query":"Tickets query"
+    },
+    "Goods":{
+      "functions":["Goods price and marketing scheme","Inventory management"],
+      "Goods price and marketing scheme":"Goods price and marketing scheme",
+      "Inventory management":"Inventory management"
+    },
+    "Hardware":{
+      "functions":["Hardware maintenance and upgrade"],
+      "Hardware maintenance and upgrade":"Hardware maintenance and upgrade"
+    },
+    "Cinema media":{
+      "functions":["Media controller"],
+      "Media controller":"Media controller"
+    },
+    "Capital":{
+      "functions":["Capital management"],
+      "Capital management":"Capital management"
+    },
+    "Management free":{
+      "functions":["Management free"],
+      "Management free":"Management free"
+    },
+    "Workforce":{
+      "functions":["Workforce management","Attendance check"],
+      "Workforce management":"Workforce management",
+      "Attendance check":"Attendance check"
+    },
+    "Air conditioner management":{
+      "functions":["Air conditioner management"],
+      "Air conditioner management":"Air conditioner management"
+    },
+    "VIP and voucher":{
+      "functions":["VIP management","Voucher management"],
+      "VIP management":"VIP management",
+      "Voucher management":"Voucher management"
+    }
+  },
+
+  "restaurant manager":{
+    "modules":["Restaurant"],
+
+    "Restaurant":{
+      "functions":["Restaurant management"],
+      "Restaurant management":"Restaurant management"
+    }
+  },
+
+  "ticket seller":{
+    "modules":["Tickets","VIP and voucher"],
+    "Tickets":{
+      "functions":["Ticket sale"],
+      "Ticket sale":"Ticket sale"
+    },
+    "VIP and voucher":{
+      "functions":["VIP join"],
+      "VIP join":"VIP join"
+    }
+  },
+
+  "goods seller":{
+    "modules":["VIP and voucher"],
+    "VIP and voucher":{
+      "functions":["VIP join"],
+      "VIP join":"VIP join"
+    }
+  },
+
+  "customer":{
+    "modules":["Tickets"],
+    "Tickets":{
+      "functions":["Ticket check","Self-help Machine","Online tickets"],
+      "Ticket check":"Ticket check",
+      "Self-help Machine":"Self-help Machine",
+      "Online tickets":"Online tickets"
+    }
+  }
+
+}
